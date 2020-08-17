@@ -1,0 +1,16 @@
+{% sw_extends '@Storefront/storefront/component/product/card/price-unit.html.twig' %}
+
+    {# Unit price is based on a reference unit #}
+    {% block component_product_box_price_reference_unit %}
+        {% set toPrice = listingPrice.to %}
+
+        {% if referncePrice is not null %}
+            <span class="price-unit-reference">
+                {% if product.priceRange %}
+                    ({{ "listing.listingTextFrom"|trans|sw_sanitize }} {{ fromPrice.referencePrice.price|currency }}  - {{ toPrice.referencePrice.price|currency }}{{ "general.star"|trans|sw_sanitize }}/ {{ fromPrice.referencePrice.referenceUnit }}&nbsp;{{ fromPrice.referencePrice.unitName }})
+                {% else %}
+                    ({{ referncePrice.price|currency }}{{ "general.star"|trans|sw_sanitize }} / {{ referncePrice.referenceUnit }} {{ referncePrice.unitName }})
+                {% endif %}
+            </span>
+        {% endif %}
+    {% endblock %}
