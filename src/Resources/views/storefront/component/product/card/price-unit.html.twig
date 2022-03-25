@@ -4,7 +4,7 @@
     {% block component_product_box_price_reference_unit %}
         {% set toPrice = listingPrice.to %}
 
-        {% if referncePrice is not null %}
+        {% if referencePrice is not null %}
             <span class="price-unit-reference">
                 {% if product.priceRange %}
                     ({{ "listing.listingTextFrom"|trans|sw_sanitize }} {{ fromPrice.referencePrice.price|currency }}  - {{ toPrice.referencePrice.price|currency }}{{ "general.star"|trans|sw_sanitize }}/ {{ fromPrice.referencePrice.referenceUnit }}&nbsp;{{ fromPrice.referencePrice.unitName }})
